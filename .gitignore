@@ -1,0 +1,12 @@
+.env
+.env.*
+.mindmap/
+*.rl
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+

@@ -1,0 +1,26 @@
+{
+  "graph": {
+    "storage_path": "~/.adalflow/graphs",
+    "project_rl_name": "project.rl",
+    "max_concurrent_writes": 1
+  },
+  "tree_sitter": {
+    "enabled_languages": ["python", "javascript", "typescript", "go", "rust", "java", "cpp"],
+    "query_directory": "code_intel/queries"
+  },
+  "incremental": {
+    "enabled": true,
+    "staleness_check_interval_hours": 24,
+    "auto_resolve_stale": false
+  },
+  "mcp": {
+    "server_name": "deepwiki-relate-bridge",
+    "transport": "stdio",
+    "allowed_origins": ["*"]
+  },
+  "retrieval": {
+    "strategy": "hybrid",
+    "stages": ["graph_exact", "graph_traversal", "graph_fulltext", "deepwiki_rag"],
+    "max_results_per_stage": 20
+  }
+}

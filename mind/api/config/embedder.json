@@ -1,0 +1,66 @@
+{
+  "embedder": {
+    "client_class": "OpenAIClient",
+    "batch_size": 500,
+    "model_kwargs": {
+      "model": "text-embedding-3-small",
+      "dimensions": 256,
+      "encoding_format": "float"
+    }
+  },
+  "embedder_ollama": {
+    "client_class": "OllamaClient",
+    "model_kwargs": {
+      "model": "nomic-embed-text"
+    }
+  },
+  "embedder_google": {
+    "client_class": "GoogleEmbedderClient",
+    "batch_size": 100,
+    "model_kwargs": {
+      "model": "gemini-embedding-001",
+      "task_type": "SEMANTIC_SIMILARITY"
+    }
+  },
+  "embedder_bedrock": {
+    "client_class": "BedrockClient",
+    "batch_size": 100,
+    "model_kwargs": {
+      "model": "amazon.titan-embed-text-v2:0",
+      "dimensions": 256
+    }
+  },
+  "embedder_lmstudio": {
+    "client_class": "OpenAIClient",
+    "initialize_kwargs": {
+      "api_key": "${LMSTUDIO_API_KEY}",
+      "base_url": "${LMSTUDIO_BASE_URL}"
+    },
+    "batch_size": 50,
+    "model_kwargs": {
+      "model": "${LMSTUDIO_EMBED_MODEL}",
+      "encoding_format": "float"
+    }
+  },
+  "embedder_nvidia": {
+    "client_class": "NvidiaClient",
+    "initialize_kwargs": {
+      "api_key": "${NVIDIA_API_KEY}",
+      "base_url": "${NVIDIA_BASE_URL}"
+    },
+    "batch_size": 50,
+    "model_kwargs": {
+      "model": "nvidia/nemotron-3.5-embed-1b",
+      "input_type": "query",
+      "encoding_format": "float"
+    }
+  },
+  "retriever": {
+    "top_k": 20
+  },
+  "text_splitter": {
+    "split_by": "word",
+    "chunk_size": 350,
+    "chunk_overlap": 100
+  }
+}
